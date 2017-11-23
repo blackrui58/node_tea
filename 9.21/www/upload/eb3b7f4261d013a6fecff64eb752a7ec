@@ -1,0 +1,19 @@
+快速编译和渲染
+简单的模板标签
+自定义标记分隔符
+支持文本包含
+支持浏览器端和服务器端
+模板静态缓存
+支持express视图系统
+//挂载静态资源处理中间件
+app.use(express.static(__dirname+"/public"));
+//设置模板视图的目录
+app.set("views","./public/views");
+//设置是否启用视图编译缓存，启用将加快服务器执行效率
+app.set("view cache",true);
+//设置模板引擎的格式即运用何种模板引擎
+app.set("view engine","ejs");
+//设置路由
+app.get("/ejs",function(req,res){
+    res.render("ejs1",{title:tem.message});
+});

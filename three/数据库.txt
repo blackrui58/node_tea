@@ -1,0 +1,9 @@
+1.创建连接,连接名随便写,test
+2.其他东西不用改
+需要有数据库的环境 (wamp: php + mysql + apache)
+打开服务器
+导入admin.sql这个文件
+
+创建数据库:
+1.右击test,点击新建数据库,数据库名: admin utf-8  utf8_general_ci
+2.右击该数据库,找到运行sql文件,导入文件即可,导入以后重启数据库

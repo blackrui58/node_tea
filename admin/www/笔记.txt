@@ -1,0 +1,12 @@
+数据类型:
+int  varchar
+
+datetime: 显示日期和时间
+
+time: 只显示时间
+
+date: 显示日期
+
+ORDER BY 字段名 (从小到大)  ASC(从小到大,默认)   DESC(从大到小)
+
+先排序,再写limit

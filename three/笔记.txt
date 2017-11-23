@@ -1,0 +1,22 @@
+JSON.parse和eval的区别：
+1.parse比较安全
+2.parse的性能比eval好,解析速度比较快
+
+模块化开发: 一个模块就是一个js文件
+
+分成多个js文件执行:
+1.命名冲突问题 (封闭空间)
+2.文件依赖问题
+
+模块化开发解决以上两种问题:
+1.CommonJS: nodejs就是使用的commonjs规范
+2.AMD
+3.CMD  
+前台适用后面两种规范解决以上两个问题 
+
+commonJS: 只适用于服务器端
+require: 引入模块
+exports: 导出模块的内容
+module: 该模块本身
+
+common.js: 封装了很多js操作

@@ -1,0 +1,35 @@
+接口信息:
+
+count: 每页的数据个数
+page: 第几页
+
+不填默认显示第1页4条数据
+
+in_theaters:
+/in_theaters?count=5&page=1
+
+comming_soon:
+/comming_soon?count=5&page=1
+
+top250:
+/top250?count=5&page=1
+
+详情:
+/detail?id=24753477
+
+1.安装数据库客户端
+2.将angular项目放在www文件夹
+
+总数据:
+SELECT COUNT (*) AS c FROM 表名
+
+count: 每页几条数据
+
+总页数: Math.ceil(总数据 / count);
+
+page: 每页
+
+
+每页数据:
+SELECT * FROM 表名 LIMIT (page - 1) * count,count;
+

@@ -1,0 +1,136 @@
+package.json: 配置文件
+
+搞出package.json: npm init --> 一路回车
+
+显示你的工程需要依赖的模块
+
+安装模块:
+npm install 模块名  本地安装 (安装到node_modules里面)
+
+npm install -g 模块名 全局安装 
+
+npm install 模块名 --save  (会在package.json里面显示,dependencies)
+
+npm install 模块名 -S
+
+npm install 模块名 --save-dev 
+npm install 模块名 -D
+(一般此模块的安装是在你的程序里面不需要依赖的,gulp,grunt,devDependencies)
+
+
+npm install : 直接给你安装package.json里面依赖的模块
+
+npm command: 查看所有的命令
+
+发送状态码:
+res.status()
+
+加密: md5,sha
+
+crypto:
+
+文件上传: multer中间件
+
+上传文件的时候,post请求方式,并且需要设置enctype="multipart/form-data"
+
+
+
+get后面的参数: req.query
+
+post的参数: req.body
+
+文件的信息: req.files
+{ 	fieldname: 'file1',  表单name值
+    originalname: 'admin.sql', 原文件名
+    encoding: '7bit',
+    mimetype: 'application/octet-stream',
+    destination: 'www/upload/', 目标地址
+    filename: '2e9a1f1ed16c241aff8f9f1fc562230d', 现文件名
+    path: 'www\\upload\\2e9a1f1ed16c241aff8f9f1fc562230d', 这个文件的路径
+    size: 975 }
+
+ express的中间件: body-parser multer
+
+ express.static()
+ express.use()
+ express.get()
+ express.post()
+
+ 
+ 模板: ejs  jade
+
+ 用来显示服务器里面的数据
+
+ 一般模板文件放在views文件夹下面
+
+ 下载ejs模块
+
+ ejs配置:
+ express.static()
+ 设置模板的目录
+ server.set('views',路径)
+ server.set('views','www/views');
+ 设置是否启用视图编译缓存,启用会加快服务器的执行效率
+ server.set('view cache',true)
+ 设置模板的类型
+ server.set('view engine','ejs')
+
+ ejs语法：
+ <%= %>: 直接显示传递的数据的属性值  ({{}})
+
+ <% %>: js代码
+
+ <%- include(ejs文件的路径)%>
+
+ 引入文件的时候,默认路径是在www/
+
+ 人员后台管理系统: 
+ 表: user
+ 登录 (七天免登录) cookie(浏览器,客户端)  session(服务器)
+
+ 显示表里面的信息 (分页)
+ 增删改查
+
+cookie: 本地化存储;4kb;session(会话); 过期时间
+session: 存储数据,存储在服务器,更安全,存储容量比较大; 20分钟;一关闭浏览器也不存在; session store
+
+session是基于cookie的
+
+cookie-parser
+express-session
+
+后台管理: ejs,express,cookie-parser,express-session,body-parser,multer,mysql,
+crypto
+
+登录界面: login.ejs    '/admin'          管理员数据表
+
+信息详情: detail.ejs   '/admin/detail'    员工信息表
+
+1. 设计表
+管理员数据表:
+name,pwd(加密),id(主键,唯一,加速)
+
+员工信息表:
+id: 主键  
+name: 名字
+age: 年龄
+sex: 性别
+job: 职业
+price: 薪资
+icon: 图标
+2. 建表
+密文: huayanghai
+
+3.界面
+login.ejs
+detail.ejs
+
+4.配接口
+'/admin': 'login.ejs'
+'/admin/detail': 'detail.ejs'
+5.登录
+
+当进入后台系统的其他界面的时候,一定有个前提,必须在你登录管理员账号的前提
+
+
+express的特点：流水线操作

@@ -1,0 +1,7 @@
+$location: 相当于对js里面的location的封装
+
+absUrl(): url地址
+
+path(): #后面
+
+SPA: single page application  单页面的应用程序 (路由)

@@ -1,0 +1,192 @@
+js: 前台
+nodejs: 后台,一个js文件,js能用的东西,node都能用
+后台语言: 
+1.java
+2.php
+3.nodejs
+优势:
+1.性能比其他的后台语言高86倍
+	响应速度:  1s      86s
+	服务器:    3 6万      200   400万
+	并发处理能力强
+2.适合前端人员学习
+3.跟前台js配合非常方便
+
+原生node:
+node框架:
+express: 简单 用法比较复杂  用的人多
+koa: 复杂 用法相对来说比较简单一点  难  用的人少
+
+node要学习的东西:
+模块: http,url,querystring,fs(file system)
+
+require(模块名)
+
+自己写模块
+
+node:
+1.安装node: node -v
+
+通过dos命令操作:
+启动node服务: node xxx.js
+tab: 自动补全
+上下键: 前面写过的命令可以直接显示
+cd: 切换文件夹
+dir: 查看当前文件夹的所有文件
+cls: 清屏
+d: 切换盘符
+ctrl+c: 终止当前运行的任务
+
+访问:
+localhost:端口号
+
+当修改了服务文件的时候,必须重新开启服务器
+
+fs模块: 文件系统,操作文件
+
+写: fs.writeFile()
+读: fs.readFile()
+
+es6:
+字符串模板: `字符串的内容${变量名}`   tab键上方
+解构赋值:
+
+前后端交互:
+ajax
+form
+
+登录注册:
+
+注册:
+自定义接口:
+/reg?username=输入框的内容&pwd=输入框的内容
+1.判断数据库里面有没有这个用户名,如果有,注册失败
+{error: 1,msg: '注册失败.此用户名已被占用'}
+2.如果没有
+{error: 0,msg: '注册成功'}
+3.如果注册成功,往数据库里面添加数据
+
+数据库: 存数据 (mysql  oracle mongodb,sqlite..)
+
+数据库分类:
+1.文档型: 数据小,并且容易丢失数据 mongodb  sqlite
+2.关系型: 存储数据量大,功能多,不容易丢失数据,安全  (mysql  oracle)
+
+mysql: 免费 强大 安全
+
+oracle: 要钱  更强大  更安全
+
+
+分为两部分:
+服务端: 你看不见,需要配置环境
+客户端: 看得见,并且可以进行操作
+
+配置数据库的环境:
+wamp: apache+php+mysql
+
+客户端:
+网页版:  localhost/phpmyadmin
+应用程序: Navicator for mysql
+
+数据库和表的关系:
+文件夹与文件的关系
+
+0.创建连接
+1.创建数据库: 右击连接名 --> 字符集(utf8 -- UTF-8 Unicode) --> 排序规则 (utf8_general_ci)
+2.创建表: 字段 (你自己需要的一些属性)
+
+右击表 --> 新建表 -- 名字 (字段名) --> 保存 (ctrl + s) --> 表名
+
+数据类型：
+    数字
+      整数-bit、tinyint、smallint、mediumint、int、bigint
+        bit-1位        0~1
+        tinyint-8位    -128~127、0~255
+        smallint       0~65535
+        mediumint      16777216
+        int            -21亿~21亿、0~43亿
+        bigint         18万万亿
+      小数-float、double
+        float          
+        double         
+
+    字符串
+      小的-varchar      最大255 (长度) 如果超过255 自动转化为text
+      大的-text         最大2G≈21亿
+
+主键: 唯一  加速查找数据
+
+操作数据库: 增删改查
+SQL语句: 结构化查询语言
+
+规范:
+1.关键字全部大写
+2.值加上单引号
+3.表名,字段名,值
+
+查: SELECT * FROM 表名  查找所有
+
+按照某个条件查找:
+SELECT * FROM 表名 WHERE 字段名='值'
+SELECT * FROM admin WHERE pwd > 60 AND pwd < 200
+
+增: INSERT INTO 表名 (字段名1,字段名2) VALUES ('值1','值2')
+
+删除: DELETE FROM 表名 WHERE 字段名 = '值'
+
+修改: UPDATE 表名 SET 字段名='值' WHERE 字段名='值'
+
+node操作数据库,得需要mysql模块
+1.下载mysql模块: npm install mysql
+2.使用require()获取模块
+3.var db = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+  database: 'class74',
+  user: 'root',
+  password: ''
+})
+
+4.db.query(SQL语句,function (err,data) {})
+
+注册:
+1.判断用户名和密码是否为空
+2.判断数据库里面是否有用户名
+3.如果有,则返回 {error: 1,msg: 此用户名已被占用}
+4.如果没有,则返回  {error: 0,msg: 注册成功}
+5.添加到数据库
+
+nodejs的框架: 
+express:
+1.文件
+2.封装了请求(get,post,use)
+3.cookie (存放在客户端)
+4.session (存放在服务器里面)
+5.文件上传
+6.模板
+
+
+使用express: 得先下载express,才能获取
+
+
+
+
+/reg?username=输入框的内容&pwd=输入框的内容
+
+响应数据: res.send();
+res.end(): 可以不写
+
+获取get后面的参数: req.query:   {属性名: 属性值}
+
+req.query
+express.static()
+express框架: 本身没有提供太多的功能
+
+express的中间件(相当于插件)
+解析post数据: body-parser
+
+一般获取到中间件以后,如果需要使用,必须在use方法里面调用一次
+
+只要用到了表单,基本上用post请求
+
+表单: 上传文件 input type="file"

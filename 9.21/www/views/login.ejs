@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<script type="text/javascript" src='./jquery-3.2.1.js'></script>
+	<script type="text/javascript">
+	$(function () {
+		$('h1').click(function (){
+			alert(2);
+		});
+	})
+	</script>
+</head>
+<body>
+	<%- include('header.ejs')%>
+	<h1>这是admin界面</h1>
+	<h2>a的值是: <%=a%></h2>
+	<h3>b: <%= b%></h3>
+	<img src="./upload/1e05775396fe357d325f82a65adfbde5">
+	<ul>
+		<% for (var i = 0;i < arr.length;i++){ %>
+			<li><%= arr[i]%></li>
+		<% } %>
+	</ul>
+
+	<ul>
+		<% arr.forEach(function (ele) { %>
+			<li><%= ele%></li>
+		<%}) %>
+	</ul>
+	<%- include('footer.ejs')%>
+
+
+</body>
+</html>

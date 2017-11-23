@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="./jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="./angular.js"></script>
+	<script type="text/javascript">
+	var app = angular.module('app',[]);
+	// 初始化全局数据
+	app.run(function ($http,$rootScope) {
+		// 请求token
+		$http.get('/token').then(function (str) {
+			console.log(str.data);
+			var {username,pwd} = str.data;
+			$rootScope.v = username;
+			$rootScope.w = pwd;
+		});
+	});
+
+	app.controller('f',['$scope','$http',function ($scope,$http) {
+		// 控制显示隐藏
+		$scope.isShow = false;
+		$scope.c = false;
+		$scope.submit = function () {
+			
+			if ($scope.v) { // 有值
+				$scope.isShow = false;
+				// 相当于原来写action的操作
+				$.ajax({
+					type: 'post',
+					url: '/login',
+					data: {username: $scope.v,pwd: $scope.w},
+					success: function (str) {
+						console.log(str);
+					}
+				});
+			} else {
+				$scope.isShow = true;
+			}
+			
+		}
+	}]);
+	</script>
+</head>
+<body>
+	<!-- 检测表单提交数据: onsubmit -->
+	<form  method="post" ng-controller="f" ng-submit="submit()">
+		<div ng-show="isShow">请填写用户名</div>
+		<div ng-show="c">账号或者密码错误</div>
+		用户名: <input type="text" name="username" ng-model="v" /><br>
+		密码: <input type="password" name="pwd" ng-model="w"/>
+		<input type="submit" value="提交" />
+	</form>
+</body>
+</html>

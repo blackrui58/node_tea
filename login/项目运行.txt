@@ -1,0 +1,11 @@
+1.运行: cnpm install (安装依赖的模块) node_modules
+2.npm run dev
+
+表
+1.账号密码
+
+2.个人信息
+
+3.用户列表
+
+4.图书列表
